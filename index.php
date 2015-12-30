@@ -1,0 +1,1 @@
+<h1>This is index page from Stage Branch</h1>
