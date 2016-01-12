@@ -60,7 +60,11 @@
       "location": "[parameters('siteLocation')]",
       "properties": {
         "name": "[parameters('hostingPlanName')]",
-        "sku": "[parameters('sku')]",
+		"sku": {
+                "tier": "Stadard",
+                "name": "small",
+                "capacity": 0
+            },
         "workerSize": "[parameters('workerSize')]",
         "numberOfWorkers": 1
       }
