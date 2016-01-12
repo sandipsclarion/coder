@@ -24,15 +24,11 @@
       }
     },
     "sku": {
-		"type": "string",
-		"allowedValues": [
-         "Free",
-         "Shared",
-         "Basic",
-         "Standard",
-         "Premium"
-		],
-       "defaultValue": "Standard"
+      "type": "string",
+	  "defaultValue": "Standard",
+      "metadata": {
+        "description": "The pricing tier for the hosting plan."
+      }
     },
     "workerSize": {
       "type": "string",
@@ -62,7 +58,11 @@
             "type": "Microsoft.Web/serverfarms",
             "name": "[parameters('hostingPlanName')]",
             "location": "[resourceGroup().location]",
-            "sku": "[parameters('sku')]",
+            "sku": {
+                "tier": "Standard: 1 Small",
+                "name": "f1",
+                "capacity": 0
+            },
             "properties": {
                 "numberOfWorkers": 1
             }
