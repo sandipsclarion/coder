@@ -11,7 +11,7 @@
     },
     "hostingPlanName": {
       "type": "string",
-	  "defaultValue": "DefaultServerFarm",
+	  "defaultValue": "Default",
 	  "metadata": {
         "description": "The name of the App Service plan to use for hosting the web app."
       }
@@ -54,7 +54,7 @@
   },
   "resources": [
     {
-      "apiVersion": "2015-30-12",
+      "apiVersion": "2015-08-01",
       "name": "[parameters('hostingPlanName')]",
       "type": "Microsoft.Web/serverfarms",
       "location": "[parameters('siteLocation')]",
@@ -66,7 +66,7 @@
       }
     },
     {
-      "apiVersion": "2015-30-12",
+      "apiVersion": "2015-08-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/sites",
       "location": "[parameters('siteLocation')]",
@@ -78,7 +78,7 @@
       },
       "resources": [
         {
-          "apiVersion": "2015-04-01",
+          "apiVersion": "2015-08-01",
           "name": "web",
           "type": "sourcecontrols",
           "dependsOn": [
