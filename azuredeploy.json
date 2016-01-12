@@ -11,16 +11,15 @@
     },
     "hostingPlanName": {
       "type": "string",
-	  "defaultValue": "drupalappservice",
-      "metadata": {
+	  "metadata": {
         "description": "The name of the App Service plan to use for hosting the web app."
       }
     },
     "siteLocation": {
       "type": "string",
-	  "defaultValue": "East US",
+	  "defaultValue": "South Central US",
       "metadata": {
-        "description": "East US"
+        "description": "South Central US"
       }
     },
     "sku": {
