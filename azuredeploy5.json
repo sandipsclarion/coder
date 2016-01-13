@@ -23,18 +23,21 @@
     },
     "mysqlPassword": {
       "type": "securestring",
+      "value": "demodbmpwd",
       "metadata": {
         "description": "Root password password for the MySQL database."
       }
     },
     "adminUsername": {
       "type": "string",
+	  "value": "demodbusr",
       "metadata": {
         "description": "Username for the Virtual Machine."
       }
     },
     "adminPassword": {
       "type": "securestring",
+	  "value": "demodbapwd",
       "metadata": {
         "description": "Password for the Virtual Machine."
       }
