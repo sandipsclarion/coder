@@ -116,7 +116,7 @@
                     "name":"connectionstrings",
                     "type":"config",
                     "dependsOn":[
-                        "[concat('Microsoft.Web/sites/', variables('webSiteName'))]"
+                        "[concat('Microsoft.Web/sites/', parameters('siteName'))]"
                     ],
                     "properties":{
                         "defaultConnection":{
