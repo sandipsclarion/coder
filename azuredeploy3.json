@@ -60,7 +60,7 @@
             "location": "[resourceGroup().location]",
             "sku": {
                 "tier": "Standard",
-                "name": "f1",
+                "name": "s1",
                 "capacity": 0
             },
             "properties": {
