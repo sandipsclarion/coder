@@ -4,7 +4,7 @@
   "parameters": {
     "siteName": {
       "type": "string",
-	  "defaultValue": "clariondemoapp",
+	  "defaultValue": "clariondemoapp4",
       "metadata": {
         "description": "Demo Web App."
       }
