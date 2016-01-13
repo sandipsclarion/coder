@@ -73,21 +73,18 @@
         },
         "mysqlPassword":{
             "type":"securestring",
-            "value":"clarion123",
             "metadata":{
                 "description":"Root password password for the MySQL database."
             }
         },
         "adminUsername":{
             "type":"string",
-            "value":"clarion123",
             "metadata":{
                 "description":"Username for the Virtual Machine."
             }
         },
         "adminPassword":{
             "type":"securestring",
-            "value":"clarion123",
             "metadata":{
                 "description":"Password for the Virtual Machine."
             }
