@@ -114,7 +114,7 @@
         },
         "wpDbPassword": {
             "type": "securestring",
-			"defaultValue": "Clarion@123",
+			"defaultValue": "Clarion@12345",
             "metadata": {
                 "description": "wordpress db password"
             }
@@ -128,21 +128,21 @@
         },
         "vmPassword": {
             "type": "securestring",
-			"defaultValue": "Clarion@123",
+			"defaultValue": "Clarion@12345",
             "metadata": {
                 "description": "password to ssh to the VMs"
             }
         },
         "mysqlRootPassword": {
             "type": "securestring",
-			"defaultValue": "Clarion@123",
+			"defaultValue": "Clarion@12345",
             "metadata": {
                 "description": "mysql root user password"
             }
         },
         "mysqlReplicationPassword": {
             "type": "securestring",
-			"defaultValue": "Clarion@123",
+			"defaultValue": "Clarion@12345",
             "metadata": {
                 "description": "mysql replication user password"
             }
