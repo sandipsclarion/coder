@@ -53,7 +53,7 @@
         },
         "serverName":{
             "type":"string",
-            "defaultValue":"southcentral_server"
+            "defaultValue":"southcentralserver"
         },
         "serverLocation":{
             "type":"string",
