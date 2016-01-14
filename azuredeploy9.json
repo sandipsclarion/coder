@@ -65,7 +65,7 @@
         },
         "administratorLoginPassword":{
             "type":"securestring",
-            "defaultValue":"clarion@123"
+            "defaultValue":"Clarion@123"
         },
         "databaseName":{
             "type":"string",
