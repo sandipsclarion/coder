@@ -53,11 +53,11 @@
         },
         "serverName":{
             "type":"string",
-            "defaultValue":"southcentralserver"
+            "defaultValue":"clarionsqlserver"
         },
         "serverLocation":{
             "type":"string",
-            "defaultValue":"South Central US"
+            "defaultValue":"East US"
         },
         "administratorLogin":{
             "type":"string",
@@ -65,7 +65,7 @@
         },
         "administratorLoginPassword":{
             "type":"securestring",
-            "defaultValue":"Clarion@12345"
+            "defaultValue":"Azure@12345"
         },
         "databaseName":{
             "type":"string",
