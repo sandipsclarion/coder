@@ -51,48 +51,48 @@
                 "description":"Master branch of the GitHub repository to use."
             }
         },
-		"serverName": {
-		  "type": "string",
-		  "defaultValue":"southcentral_server"
-		},
-		"serverLocation": {
-		  "type": "string",
-		  "defaultValue":"South Central US"
-		},
-		"administratorLogin": {
-		  "type": "string",
-		  "defaultValue": "clarion"
-		},
-		"administratorLoginPassword": {
-		  "type": "securestring",
-		  "defaultValue": "clarion@123"
-		},
-		"databaseName": {
-		  "type": "string",
-		  "defaultValue": "clariondemoapp100_db"
-		},
-		"collation": {
-		  "type": "string",
-		  "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
-		},
-		"edition": {
-		  "type": "string",
-		  "defaultValue": "Standard",
-		  "metadata": {
-			"description": "The type of database to create. The available options are: Web, Business, Basic, Standard, and Premium."
-		  }
-		},
-		"maxSizeBytes": {
-		  "type": "string",
-		  "defaultValue": "1073741824"
-		},
-		"requestedServiceObjectiveName": {
-		  "type": "string",
-		  "defaultValue": "S0",
-		  "metadata": {
-			"description": "The name corresponding to the performance level for edition. The available options are: Shared, Basic, S0, S1, S2, S3, P1, P2, and P3."
-		  }
-		}
+        "serverName":{
+            "type":"string",
+            "defaultValue":"southcentral_server"
+        },
+        "serverLocation":{
+            "type":"string",
+            "defaultValue":"South Central US"
+        },
+        "administratorLogin":{
+            "type":"string",
+            "defaultValue":"clarion"
+        },
+        "administratorLoginPassword":{
+            "type":"securestring",
+            "defaultValue":"clarion@123"
+        },
+        "databaseName":{
+            "type":"string",
+            "defaultValue":"clariondemoapp100_db"
+        },
+        "collation":{
+            "type":"string",
+            "defaultValue":"SQL_Latin1_General_CP1_CI_AS"
+        },
+        "edition":{
+            "type":"string",
+            "defaultValue":"Standard",
+            "metadata":{
+                "description":"The type of database to create. The available options are: Web, Business, Basic, Standard, and Premium."
+            }
+        },
+        "maxSizeBytes":{
+            "type":"string",
+            "defaultValue":"1073741824"
+        },
+        "requestedServiceObjectiveName":{
+            "type":"string",
+            "defaultValue":"S0",
+            "metadata":{
+                "description":"The name corresponding to the performance level for edition. The available options are: Shared, Basic, S0, S1, S2, S3, P1, P2, and P3."
+            }
+        }
     },
     "resources":[
         {
