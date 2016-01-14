@@ -1,0 +1,181 @@
+{
+    "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion":"1.0.0.0",
+    "parameters":{
+        "siteName":{
+            "type":"string",
+            "defaultValue":"clariondemoapp100",
+            "metadata":{
+                "description":"Demo Web App."
+            }
+        },
+        "hostingPlanName":{
+            "type":"string",
+            "defaultValue":"ServicePlan",
+            "metadata":{
+                "description":"The name of the App Service plan to use for hosting the web app."
+            }
+        },
+        "siteLocation":{
+            "type":"string",
+            "defaultValue":"South Central US",
+            "metadata":{
+                "description":"South Central US"
+            }
+        },
+        "sku":{
+            "type":"string",
+            "defaultValue":"Standard",
+            "metadata":{
+                "description":"The pricing tier for the hosting plan."
+            }
+        },
+        "workerSize":{
+            "type":"string",
+            "defaultValue":"1",
+            "metadata":{
+                "description":"The instance size of the hosting plan (small)."
+            }
+        },
+        "repoURL":{
+            "type":"string",
+            "defaultValue":"https://github.com/sandipsclarion/coder.git",
+            "metadata":{
+                "description":"The URL for the GitHub repository that contains the project to deploy."
+            }
+        },
+        "branch":{
+            "type":"string",
+            "defaultValue":"master",
+            "metadata":{
+                "description":"Master branch of the GitHub repository to use."
+            }
+        },
+		"serverName": {
+		  "type": "string",
+		  "defaultValue":"southcentral_server"
+		},
+		"serverLocation": {
+		  "type": "string"
+		  "defaultValue":"South Central US"
+		},
+		"administratorLogin": {
+		  "type": "string",
+		  "defaultValue": "clarion"
+		},
+		"administratorLoginPassword": {
+		  "type": "securestring",
+		  "defaultValue": "clarion@123"
+		},
+		"databaseName": {
+		  "type": "string",
+		  "defaultValue": "clariondemoapp100_db"
+		},
+		"collation": {
+		  "type": "string",
+		  "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+		},
+		"edition": {
+		  "type": "string",
+		  "defaultValue": "Standard",
+		  "metadata": {
+			"description": "The type of database to create. The available options are: Web, Business, Basic, Standard, and Premium."
+		  }
+		},
+		"maxSizeBytes": {
+		  "type": "string",
+		  "defaultValue": "1073741824"
+		},
+		"requestedServiceObjectiveName": {
+		  "type": "string",
+		  "defaultValue": "S0",
+		  "metadata": {
+			"description": "The name corresponding to the performance level for edition. The available options are: Shared, Basic, S0, S1, S2, S3, P1, P2, and P3."
+		  }
+		}
+    },
+    "resources":[
+        {
+            "apiVersion":"2015-08-01",
+            "type":"Microsoft.Web/serverfarms",
+            "name":"[parameters('hostingPlanName')]",
+            "location":"[resourceGroup().location]",
+            "sku":{
+                "tier":"Free",
+                "name":"f1",
+                "capacity":0
+            },
+            "properties":{
+                "numberOfWorkers":1
+            }
+        },
+        {
+            "apiVersion":"2015-08-01",
+            "name":"[parameters('siteName')]",
+            "type":"Microsoft.Web/sites",
+            "location":"[parameters('siteLocation')]",
+            "dependsOn":[
+                "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+            ],
+            "properties":{
+                "serverFarmId":"[parameters('hostingPlanName')]"
+            },
+            "resources":[
+                {
+                    "apiVersion":"2015-08-01",
+                    "name":"web",
+                    "type":"sourcecontrols",
+                    "dependsOn":[
+                        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+                    ],
+                    "properties":{
+                        "RepoUrl":"[parameters('repoURL')]",
+                        "branch":"[parameters('branch')]",
+                        "IsManualIntegration":true
+                    }
+                }
+            ]
+        },
+        {
+            "name":"[parameters('serverName')]",
+            "type":"Microsoft.Sql/servers",
+            "location":"[parameters('serverLocation')]",
+            "apiVersion":"2014-04-01-preview",
+            "properties":{
+                "administratorLogin":"[parameters('administratorLogin')]",
+                "administratorLoginPassword":"[parameters('administratorLoginPassword')]",
+                "version":"12.0"
+            },
+            "resources":[
+                {
+                    "name":"[parameters('databaseName')]",
+                    "type":"databases",
+                    "location":"[parameters('serverLocation')]",
+                    "apiVersion":"2014-04-01-preview",
+                    "dependsOn":[
+                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                    ],
+                    "properties":{
+                        "edition":"[parameters('edition')]",
+                        "collation":"[parameters('collation')]",
+                        "maxSizeBytes":"[parameters('maxSizeBytes')]",
+                        "requestedServiceObjectiveName":"[parameters('requestedServiceObjectiveName')]"
+                    }
+                },
+                {
+                    "apiVersion":"2014-04-01-preview",
+                    "dependsOn":[
+                        "[concat('Microsoft.Sql/servers/', parameters('serverName'))]"
+                    ],
+                    "location":"[parameters('serverLocation')]",
+                    "name":"AllowAllWindowsAzureIps",
+                    "properties":{
+                        "endIpAddress":"0.0.0.0",
+                        "startIpAddress":"0.0.0.0"
+                    },
+                    "type":"firewallrules"
+                }
+            ]
+        }
+    ]
+}
