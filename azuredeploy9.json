@@ -56,7 +56,7 @@
 		  "defaultValue":"southcentral_server"
 		},
 		"serverLocation": {
-		  "type": "string"
+		  "type": "string",
 		  "defaultValue":"South Central US"
 		},
 		"administratorLogin": {
