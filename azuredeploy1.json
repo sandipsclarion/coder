@@ -4,7 +4,7 @@
   "parameters": {
     "siteName": {
       "type": "string",
-	  "defaultValue": "clariondemoapp",
+	  "defaultValue": "clariondemoappstd",
       "metadata": {
         "description": "Demo Web App."
       }
@@ -59,8 +59,8 @@
             "name": "[parameters('hostingPlanName')]",
             "location": "[resourceGroup().location]",
             "sku": {
-                "tier": "Free",
-                "name": "f1",
+                "tier": "Standard",
+                "name": "S1",
                 "capacity": 0
             },
             "properties": {

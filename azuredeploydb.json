@@ -87,7 +87,7 @@
             "[concat('Microsoft.Web/Sites/', parameters('name'), '/Extensions/MSDeploy')]"
           ],
           "properties": {
-            "phpVersion": "5.5"
+            "phpVersion": "5.6"
           }
         }
       ],

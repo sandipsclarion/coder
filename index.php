@@ -1,1 +1,1 @@
-<h1>This is index page from Master Branch Just Updated to check sync</h1>
+<h1>This is index page from Master Branch</h1>

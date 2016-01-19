@@ -9,13 +9,15 @@
 	  "defaultValue":"a0860664-d2e3-482b-a141-8f649d5c2ab8"
     },
     "dbResourceGroup": {
-      "type": "string"
+      "type": "string",
+	  "defaultValue":"Default"
     },
     "name": {
       "type": "string"
     },
     "hostingPlanName": {
-      "type": "string"
+      "type": "string",
+	  "defaultValue":"ServicePlan",
     },
     "hostingEnvironment": {
       "type": "string"
